@@ -43,7 +43,7 @@
 // XY2 Thanks to Emmanuel Hayez!
 // #define XY2_V6_255_NO_TITAN_TMC 1
 // #define XY2_V6_255_TITAN_TMC 1
-// #define XY2_V6_255_BMG_TMC 1
+#define XY2_V6_255_BMG_TMC 1
 // #define XY2_V6_255M_BMG_TMC 1
 
 // #define XY2_V5_255_NO_TITAN_TMC 1
@@ -57,9 +57,9 @@
 
 // #define BTT_SKR_TURBO_330_NO_TITAN_TMC_2209_UART 1
 
-// #define TFT_LVGL_UI
+//#define TFT_LVGL_UI
 // #define TFT_CLASSIC_UI
-// #define TFT_COLOR_UI
+#define TFT_COLOR_UI
 
 #if V6_330_TITAN_TMC
   #define MOTHERBOARD BOARD_CHITU3D_V6
@@ -233,9 +233,9 @@
   //#define WITH_TITAN 1
   #define WITH_BMG 1
   #define XY2_MODELS 1
-  #define X_BED_SIZE 255
-  #define Y_BED_SIZE 255
-  #define Z_MAX_POS 260
+  #define X_BED_SIZE 245
+  #define Y_BED_SIZE 245
+  #define Z_MAX_POS 245
   #define CUSTOM_MACHINE_NAME "Tronxy XY-2PRO"
 
 #elif XY2_V6_255M_BMG_TMC
@@ -1220,7 +1220,7 @@
  * Override with M203
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
-#define DEFAULT_MAX_FEEDRATE          { 300, 300, 5, 25 }
+#define DEFAULT_MAX_FEEDRATE          { 200, 200, 5, 25 }
 
 //#define LIMITED_MAX_FR_EDITING        // Limit edit via M203 or LCD to DEFAULT_MAX_FEEDRATE * 2
 #if ENABLED(LIMITED_MAX_FR_EDITING)
@@ -1248,9 +1248,9 @@
  *   M204 R    Retract Acceleration
  *   M204 T    Travel Acceleration
  */
-#define DEFAULT_ACCELERATION          1500    // X, Y, Z and E acceleration for printing moves
-#define DEFAULT_RETRACT_ACCELERATION  1500    // E acceleration for retracts
-#define DEFAULT_TRAVEL_ACCELERATION   1500    // X, Y, Z acceleration for travel (non printing) moves
+#define DEFAULT_ACCELERATION          700    // X, Y, Z and E acceleration for printing moves
+#define DEFAULT_RETRACT_ACCELERATION  700    // E acceleration for retracts
+#define DEFAULT_TRAVEL_ACCELERATION   700    // X, Y, Z acceleration for travel (non printing) moves
 
 /**
  * Default Jerk limits (mm/s)
@@ -1285,7 +1285,7 @@
  */
 #if DISABLED(CLASSIC_JERK)
   #ifdef XY2_MODELS
-    #define JUNCTION_DEVIATION_MM 0.022 // (mm) Distance from real junction edge
+    #define JUNCTION_DEVIATION_MM 0.057 // (mm) Distance from real junction edge
   #else
     #define JUNCTION_DEVIATION_MM 0.013 // (mm) Distance from real junction edge
   #endif
@@ -1471,7 +1471,7 @@
  *     O-- FRONT --+
  */
 #ifdef XY2_MODELS
-#define NOZZLE_TO_PROBE_OFFSET { -50, -10, 0 }
+#define NOZZLE_TO_PROBE_OFFSET { -40, -5, 0 }
 #else
 #define NOZZLE_TO_PROBE_OFFSET { -35, -0, 0 }
 #endif
@@ -1707,7 +1707,7 @@
 #endif
 
 #if EITHER(MIN_SOFTWARE_ENDSTOPS, MAX_SOFTWARE_ENDSTOPS)
-  //#define SOFT_ENDSTOPS_MENU_ITEM  // Enable/Disable software endstops from the LCD
+  #define SOFT_ENDSTOPS_MENU_ITEM  // Enable/Disable software endstops from the LCD
 #endif
 
 /**
@@ -1973,7 +1973,7 @@
 #define LEVEL_BED_CORNERS
 
 #if ENABLED(LEVEL_BED_CORNERS)
-  #define LEVEL_CORNERS_INSET_LFRB { 30, 30, 30, 30 } // (mm) Left, Front, Right, Back insets
+  #define LEVEL_CORNERS_INSET_LFRB { 20, 20, 20, 20 } // (mm) Left, Front, Right, Back insets
   #define LEVEL_CORNERS_HEIGHT      0.0   // (mm) Z height of nozzle at leveling points
   #define LEVEL_CORNERS_Z_HOP       4.0   // (mm) Z height of nozzle between leveling points
   //#define LEVEL_CENTER_TOO              // Move to the center after the last corner
